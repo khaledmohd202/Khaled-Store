@@ -1,34 +1,32 @@
 name: ecommerce
 description: "A new Flutter project."
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.4.3 <4.0.0'
+  sdk: ">=3.4.3 <4.0.0"
 
 dependencies:
-  cloud_firestore: null
+  cloud_firestore:
   cupertino_icons: ^1.0.6
-  dartz: null
-  firebase_auth: null
-  firebase_core: null
+  dartz:
+  firebase_auth:
+  firebase_core:
   flutter:
     sdk: flutter
-  flutter_bloc: null
+  flutter_bloc:
   flutter_screenutil: ^5.9.3
-  flutter_svg: null
-  get_it: null
+  flutter_svg:
+  get_it:
 
 dev_dependencies:
-
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
 
   assets:

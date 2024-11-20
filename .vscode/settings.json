@@ -3,5 +3,6 @@
         "ecommerce",
         "presentaion",
         "screenutil"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

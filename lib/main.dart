@@ -12,7 +12,7 @@ import 'firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   await initializeDependencies();
   runApp(const MyApp());
@@ -27,13 +27,10 @@ class MyApp extends StatelessWidget {
       child: BlocProvider(
         create: (context) => SplashCubit()..appStarted(),
         child: MaterialApp(
-          theme: AppTheme.appTheme,
-          debugShowCheckedModeBanner: false,
-          home: const SplashPage()
-        ),
+            theme: AppTheme.appTheme,
+            debugShowCheckedModeBanner: false,
+            home: const SplashPage()),
       ),
     );
-
   }
 }
-
