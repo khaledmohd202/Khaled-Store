@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
         "ecommerce",
+        "Firestore",
         "presentaion",
-        "screenutil"
+        "screenutil",
+        "successfull"
     ],
     "java.configuration.updateBuildConfiguration": "automatic"
 }
