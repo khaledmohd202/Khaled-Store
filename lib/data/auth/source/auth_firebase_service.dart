@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../models/user_creation_req.dart';
-import '../models/user_signin_req.dart';
+import '../models/user_sign_in_req.dart';
 
 abstract class AuthFirebaseService {
   Future<Either> signUp(UserCreationReq user);

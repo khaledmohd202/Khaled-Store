@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce/data/auth/models/user.dart';
 import 'package:ecommerce/data/auth/models/user_creation_req.dart';
-import 'package:ecommerce/data/auth/models/user_signin_req.dart';
+import 'package:ecommerce/data/auth/models/user_sign_in_req.dart';
 import 'package:ecommerce/data/auth/source/auth_firebase_service.dart';
 import 'package:ecommerce/domain/auth/repository/auth.dart';
 import 'package:ecommerce/service_locator.dart';

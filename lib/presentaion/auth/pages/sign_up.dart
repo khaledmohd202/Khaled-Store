@@ -1,14 +1,20 @@
 import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
-import 'package:ecommerce/common/widgets/appbar/app_bar.dart';
+import 'package:ecommerce/common/widgets/app_bar/app_bar.dart';
 import 'package:ecommerce/common/widgets/button/basic_app_button.dart';
-import 'package:ecommerce/presentaion/auth/pages/enter_password.dart';
+import 'package:ecommerce/data/auth/models/user_creation_req.dart';
+import 'package:ecommerce/presentaion/auth/pages/gender_and_age_selection.dart';
 import 'package:ecommerce/presentaion/auth/pages/sign_in.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+  SignUp({super.key});
+
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +23,30 @@ class SignUp extends StatelessWidget {
         title: '',
         height: 30.h,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 14.w,
-          vertical: 30.h,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _signText(context),
-            SizedBox(height: 40.h),
-            _firstNameField(context),
-            SizedBox(height: 20.h),
-            _lastNameField(context),
-            SizedBox(height: 20.h),
-            _emailField(context),
-            SizedBox(height: 20.h),
-            _passwordField(context),
-            SizedBox(height: 60.h),
-            _continueButton(context),
-            SizedBox(height: 10.h),
-            _haveAccount(context),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 14.w,
+            vertical: 30.h,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _signText(context),
+              SizedBox(height: 40.h),
+              _firstNameField(context),
+              SizedBox(height: 20.h),
+              _lastNameField(context),
+              SizedBox(height: 20.h),
+              _emailField(context),
+              SizedBox(height: 20.h),
+              _passwordField(context),
+              SizedBox(height: 60.h),
+              _continueButton(context),
+              SizedBox(height: 10.h),
+              _haveAccount(context),
+            ],
+          ),
         ),
       ),
     );
@@ -55,32 +63,36 @@ class SignUp extends StatelessWidget {
   }
 
   Widget _firstNameField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _firstNameController,
+      decoration: const InputDecoration(
         hintText: 'First Name',
       ),
     );
   }
 
   Widget _lastNameField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _lastNameController,
+      decoration: const InputDecoration(
         hintText: 'Last Name',
       ),
     );
   }
 
   Widget _passwordField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _passwordController,
+      decoration: const InputDecoration(
         hintText: 'Password',
       ),
     );
   }
 
   Widget _emailField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _emailController,
+      decoration: const InputDecoration(
         hintText: 'Email Address',
       ),
     );
@@ -89,7 +101,17 @@ class SignUp extends StatelessWidget {
   Widget _continueButton(BuildContext context) {
     return BasicAppButton(
       onPressed: () {
-        AppNavigator.push(context, const EnterPassword());
+        AppNavigator.push(
+          context,
+          GenderAndAgeSelection(
+            userCreationReq: UserCreationReq(
+              firstName: _firstNameController.text,
+              lastName: _lastNameController.text,
+              email: _emailController.text,
+              password: _passwordController.text,
+            ),
+          ),
+        );
       },
       title: 'Continue',
     );

@@ -1,6 +1,6 @@
 // import 'package:ecommerce/main.dart';
 import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
-import 'package:ecommerce/common/widgets/appbar/app_bar.dart';
+import 'package:ecommerce/common/widgets/app_bar/app_bar.dart';
 import 'package:ecommerce/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerce/presentaion/auth/pages/forgot_password.dart';
 import 'package:flutter/gestures.dart';

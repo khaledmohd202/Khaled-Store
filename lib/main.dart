@@ -27,9 +27,10 @@ class MyApp extends StatelessWidget {
       child: BlocProvider(
         create: (context) => SplashCubit()..appStarted(),
         child: MaterialApp(
-            theme: AppTheme.appTheme,
-            debugShowCheckedModeBanner: false,
-            home: const SplashPage()),
+          theme: AppTheme.appTheme,
+          debugShowCheckedModeBanner: false,
+          home: const SplashPage(),
+        ),
       ),
     );
   }

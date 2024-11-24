@@ -1,4 +1,4 @@
-import 'package:ecommerce/core/usecase/usecase.dart';
+import 'package:ecommerce/core/use_case/use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'products_display_state.dart';

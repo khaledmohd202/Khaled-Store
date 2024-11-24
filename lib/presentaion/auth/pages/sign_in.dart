@@ -1,6 +1,6 @@
 // import 'package:ecommerce/main.dart';
 import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
-import 'package:ecommerce/common/widgets/appbar/app_bar.dart';
+import 'package:ecommerce/common/widgets/app_bar/app_bar.dart';
 import 'package:ecommerce/common/widgets/button/basic_app_button.dart';
 import 'package:ecommerce/presentaion/auth/pages/enter_password.dart';
 import 'package:ecommerce/presentaion/auth/pages/sign_up.dart';
@@ -81,12 +81,12 @@ class SignIn extends StatelessWidget {
               ..onTap = () {
                 AppNavigator.push(
                   context,
-                  const SignUp(),
+                  SignUp(),
                 );
               },
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 14.sp,
+              fontSize: 16.sp,
             ),
           ),
         ],
