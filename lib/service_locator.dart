@@ -34,7 +34,6 @@ import 'domain/category/repository/category.dart';
 
 final sl = GetIt.instance; //sl => SingleTon
 
-
 Future<void> initializeDependencies() async {
   // Services
 

@@ -32,27 +32,32 @@ class BasicReactiveButton extends StatelessWidget {
 
   Widget _loading() {
     return ElevatedButton(
-        onPressed: null,
-        style: ElevatedButton.styleFrom(
-          minimumSize: Size.fromHeight(height ?? 45.h),
-        ),
-        child: Container(
-            height: height ?? 45.h,
-            alignment: Alignment.center,
-            child: const CircularProgressIndicator()));
+      onPressed: null,
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size.fromHeight(height ?? 45.h),
+      ),
+      child: Container(
+        height: height ?? 45.h,
+        alignment: Alignment.center,
+        child: const CircularProgressIndicator(),
+      ),
+    );
   }
 
   Widget _initial() {
     return ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          minimumSize: Size.fromHeight(height ?? 45.h),
-        ),
-        child: content ??
-            Text(
-              title,
-              style: const TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.w400),
-            ));
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        minimumSize: Size.fromHeight(height ?? 45.h),
+      ),
+      child: content ??
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+    );
   }
 }

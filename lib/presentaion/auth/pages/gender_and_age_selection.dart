@@ -24,15 +24,14 @@ class GenderAndAgeSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BasicAppBar(title: ''),
+      appBar: BasicAppBar(title: '', height: 60.h),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => GenderSelectionCubit()),
           BlocProvider(create: (context) => AgeSelectionCubit()),
           BlocProvider(create: (context) => AgesDisplayCubit()),
-          BlocProvider(
-              create: (context) =>
-                  ButtonStateCubit()), // There is an error the value of it not appear yet (Because BlocListener"<ButtonStateCubit, ButtonState>")
+          // There is an error the value of it not appear yet (Because BlocListener"<ButtonStateCubit, ButtonState>")
+          BlocProvider(create: (context) => ButtonStateCubit()),
         ],
         child: BlocListener<ButtonStateCubit, ButtonState>(
           listener: (context, state) {
@@ -47,17 +46,15 @@ class GenderAndAgeSelection extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 14.w,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 14.w),
                 child: Column(
                   children: [
                     _tellUs(),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                     _genders(context),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     _howOld(),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                     _age(),
                   ],
                 ),
@@ -84,10 +81,11 @@ class GenderAndAgeSelection extends StatelessWidget {
   Widget _genders(BuildContext context) {
     return BlocBuilder<GenderSelectionCubit, int>(builder: (context, state) {
       return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           genderTile(context, 1, 'Men'),
           SizedBox(width: MediaQuery.of(context).size.width * 0.05),
-          genderTile(context, 1, 'women'),
+          genderTile(context, 2, 'women'),
         ],
       );
     });
@@ -122,6 +120,7 @@ class GenderAndAgeSelection extends StatelessWidget {
       ),
     );
   }
+
 
   Widget _howOld() {
     return Text(

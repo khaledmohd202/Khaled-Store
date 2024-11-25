@@ -41,6 +41,7 @@ class Ages extends StatelessWidget {
 
   Widget _ages(List<QueryDocumentSnapshot<Map<String, dynamic>>> ages) {
     return ListView.separated(
+      padding: EdgeInsets.all(10.dg),
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {

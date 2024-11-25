@@ -50,22 +50,26 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
 */
   Future<Either> signUp(UserCreationReq user) async {
     try {
-      var returnedData = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: user.email!, password: user.password!);
+      var returnedData =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: user.email!,
+        password: user.password!,
+      );
 
       await FirebaseFirestore.instance
           .collection('Users')
           .doc(returnedData.user!.uid)
-          .set({
-        'firstName': user.firstName,
-        'lastName': user.lastName,
-        'email': user.email,
-        'gender': user.gender,
-        'age': user.age,
-        'image': returnedData.user!.photoURL,
-        'userId': returnedData.user!.uid
-      });
+          .set(
+        {
+          'firstName': user.firstName,
+          'lastName': user.lastName,
+          'email': user.email,
+          'gender': user.gender,
+          'age': user.age,
+          'image': returnedData.user!.photoURL,
+          'userId': returnedData.user!.uid
+        },
+      );
 
       return const Right('Sign up was successfull');
     } on FirebaseAuthException catch (e) {
@@ -83,11 +87,14 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
   @override
   Future<Either> getAges() async {
     try {
-      var returnedData =
-          await FirebaseFirestore.instance.collection('Ages').get();
+      var returnedData = await FirebaseFirestore.instance
+          .collection('Ages')
+          .orderBy('order')
+          .get();
+
       return Right(returnedData.docs);
     } catch (e) {
-      return const Left('Please try again');
+      return left('Please try again');
     }
   }
 
@@ -95,7 +102,10 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
   Future<Either> signIn(UserSignInReq user) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: user.email!, password: user.password!);
+        email: user.email!,
+        password: user.password!,
+      );
+
       return const Right('Sign in was successfull');
     } on FirebaseAuthException catch (e) {
       String message = '';
@@ -106,7 +116,7 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
         message = 'Wrong password provided for this user';
       }
 
-      return Left(message);
+      return left(message);
     }
   }
 

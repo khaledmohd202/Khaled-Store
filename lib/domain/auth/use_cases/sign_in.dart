@@ -9,4 +9,5 @@ class SignInUseCase implements UseCase<Either, UserSignInReq> {
   Future<Either> call({UserSignInReq? params}) async {
     return sl<AuthRepository>().signIn(params!);
   }
+  // await
 }

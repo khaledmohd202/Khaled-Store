@@ -61,7 +61,7 @@ class ForgotPassword extends StatelessWidget {
   Widget _continueButton(BuildContext context) {
     return BasicAppButton(
       onPressed: () {
-        AppNavigator.push(context, const EnterPassword());
+        // AppNavigator.push(context,  EnterPassword());
       },
       title: 'Continue',
     );

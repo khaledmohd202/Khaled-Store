@@ -91,6 +91,7 @@ class SignUp extends StatelessWidget {
 
   Widget _emailField(BuildContext context) {
     return TextField(
+      keyboardType: TextInputType.emailAddress,
       controller: _emailController,
       decoration: const InputDecoration(
         hintText: 'Email Address',
@@ -129,7 +130,7 @@ class SignUp extends StatelessWidget {
             text: ' Sign In',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                AppNavigator.pushReplacement(context, const SignIn());
+                AppNavigator.pushReplacement(context, SignIn());
               },
             style: TextStyle(
               fontWeight: FontWeight.bold,
