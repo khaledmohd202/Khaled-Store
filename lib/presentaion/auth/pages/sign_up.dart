@@ -8,13 +8,23 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignUp extends StatelessWidget {
-  SignUp({super.key});
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
 
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
   final TextEditingController _firstNameController = TextEditingController();
+
   final TextEditingController _lastNameController = TextEditingController();
+
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
+
+  bool _isPasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -82,9 +92,19 @@ class SignUp extends StatelessWidget {
 
   Widget _passwordField(BuildContext context) {
     return TextField(
+      obscureText: !_isPasswordVisible,
       controller: _passwordController,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         hintText: 'Password',
+        suffixIcon: IconButton(
+          onPressed: () {
+            setState(() {
+              _isPasswordVisible = !_isPasswordVisible;
+            });
+          },
+          icon: Icon(
+              _isPasswordVisible ? Icons.visibility : Icons.visibility_off),
+        ),
       ),
     );
   }

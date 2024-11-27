@@ -86,7 +86,7 @@ class SignIn extends StatelessWidget {
               ..onTap = () {
                 AppNavigator.push(
                   context,
-                  SignUp(),
+                  const SignUp(),
                 );
               },
             style: TextStyle(

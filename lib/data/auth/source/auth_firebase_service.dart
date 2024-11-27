@@ -114,6 +114,10 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
         message = 'Not user found for this email';
       } else if (e.code == 'invalid-credential') {
         message = 'Wrong password provided for this user';
+      } else {
+        message = e.message ?? 'An error occurred. Please try again.';
+        print('FirebaseAuthException code: ${e.code}');
+        print('FirebaseAuthException message: ${e.message}');
       }
 
       return left(message);
@@ -126,7 +130,9 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       return const Right('Password reset email is sent');
     } catch (e) {
-      return const Left('Please try again');
+      return const Left(
+        'Please try again'
+      );
     }
   }
 
