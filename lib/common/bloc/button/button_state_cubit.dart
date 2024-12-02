@@ -13,14 +13,22 @@ class ButtonStateCubit extends Cubit<ButtonState> {
       Either returnedData = await useCase.call(params: params);
       returnedData.fold(
         (error) {
-          emit(ButtonFailureState(errorMessage: error));
+          emit(
+            ButtonFailureState(errorMessage: error),
+          );
         },
         (data) {
-          emit(ButtonSuccessState());
+          emit(
+            ButtonSuccessState(),
+          );
         },
       );
     } catch (e) {
-      emit(ButtonFailureState(errorMessage: e.toString()));
+      emit(
+        ButtonFailureState(
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 }

@@ -53,8 +53,10 @@ class SignIn extends StatelessWidget {
   }
 
   Widget _emailField(BuildContext context) {
-    return const TextField(
-      decoration: InputDecoration(
+    return TextField(
+      controller: _emailController,
+      keyboardType: TextInputType.emailAddress,
+      decoration: const InputDecoration(
         hintText: 'Enter Email',
       ),
     );

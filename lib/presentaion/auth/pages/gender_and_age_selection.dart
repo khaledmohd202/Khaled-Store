@@ -1,6 +1,7 @@
 import 'package:ecommerce/common/bloc/button/button_state.dart';
 import 'package:ecommerce/common/bloc/button/button_state_cubit.dart';
 import 'package:ecommerce/common/helper/bottom_sheet/app_bottom_sheet.dart';
+// import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerce/common/widgets/app_bar/app_bar.dart';
 import 'package:ecommerce/common/widgets/button/basic_reactive_button.dart';
 import 'package:ecommerce/core/configs/theme/app_colors.dart';
@@ -10,6 +11,7 @@ import 'package:ecommerce/presentaion/auth/bloc/age_selection_cubit.dart';
 import 'package:ecommerce/presentaion/auth/bloc/ages_display_cubit.dart';
 import 'package:ecommerce/presentaion/auth/bloc/gender_selection_cubit.dart';
 import 'package:ecommerce/presentaion/auth/widgets/ages.dart';
+// import 'package:ecommerce/presentaion/home/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -121,7 +123,6 @@ class GenderAndAgeSelection extends StatelessWidget {
     );
   }
 
-
   Widget _howOld() {
     return Text(
       'How old are you',
@@ -185,6 +186,9 @@ class GenderAndAgeSelection extends StatelessWidget {
                       useCase: SignUpUseCase(),
                       params: userCreationReq,
                     );
+                // if (ButtonStateCubit is ButtonSuccessState) {
+                //   AppNavigator.pushReplacement(context, const Home());
+                // }
               },
               title: 'Finish',
             );

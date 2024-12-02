@@ -35,10 +35,41 @@ class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either> getUser() async {
     var user = await sl<AuthFirebaseService>().getUser();
+
     return user.fold((error) {
-      return Left(error);
+      return Left(
+        error,
+      );
     }, (data) {
-      return Right(UserModel.fromMap(data).toEntity());
+      return Right(
+        UserModel.fromMap(data).toEntity(),
+      );
     });
   }
 }
+/*
+ @override
+  Future<Either> getUser() async {
+    var user = await sl<AuthFirebaseService>().getUser();
+    print("Fetched Data ================>: $user");
+
+    return user.fold((error) {
+      print('Error: $error');
+      return Left(error);
+    }, (data) {
+      if (data == null) {
+        print('Data is null');
+        return const Left('Data is null');
+      }
+      try {
+        return Right(UserModel.fromJson(data).toEntity());
+      } catch (e) {
+        print("Error parsing serModel: $e");
+        return Left(e.toString());
+      }
+
+      // print("this is the error ==========> $data");
+      // return Right(UserModel.fromJson(data).toEntity());
+    });
+  }
+  */

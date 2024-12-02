@@ -6,6 +6,7 @@ class CategoriesLoading extends CategoriesDisplayState {}
 
 class CategoriesLoaded extends CategoriesDisplayState {
   final List<CategoryEntity> categories;
+
   CategoriesLoaded({required this.categories});
 }
 

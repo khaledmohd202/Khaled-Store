@@ -7,6 +7,7 @@ import 'package:ecommerce/common/widgets/button/basic_reactive_button.dart';
 import 'package:ecommerce/data/auth/models/user_sign_in_req.dart';
 import 'package:ecommerce/domain/auth/use_cases/sign_in.dart';
 import 'package:ecommerce/presentaion/auth/pages/forgot_password.dart';
+import 'package:ecommerce/presentaion/home/pages/home.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,9 +49,9 @@ class _EnterPasswordState extends State<EnterPassword> {
                 );
                 ScaffoldMessenger.of(context).showSnackBar(snackbar);
               }
-              // if (state is ButtonSuccessState) {
-              //   AppNavigator.pushAndRemove(context, const HomePage());
-              // }
+              if (state is ButtonSuccessState) {
+                AppNavigator.pushAndRemove(context, const Home());
+              }
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
