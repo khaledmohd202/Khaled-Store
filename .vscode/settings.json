@@ -6,7 +6,8 @@
         "Firestore",
         "presentaion",
         "screenutil",
-        "successfull"
+        "successfull",
+        "Windrunner"
     ],
     "java.configuration.updateBuildConfiguration": "automatic"
 }

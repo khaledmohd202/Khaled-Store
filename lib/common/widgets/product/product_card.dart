@@ -1,4 +1,4 @@
-import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
+// import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerce/domain/product/entities/product.dart';
 // import 'package:ecommerce/presentation/product_detail/pages/product_detail.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +91,6 @@ class ProductCard extends StatelessWidget {
                   ),
               ),
             ),
-      
           ],
         ),
       ),
