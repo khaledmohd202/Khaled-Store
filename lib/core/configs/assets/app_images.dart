@@ -23,4 +23,13 @@ class AppImages {
   static const hoodiesSec2 = '${basePath}hoodies_sec_2$formatPNG';
   static const hoodiesSec3 = '${basePath}hoodies_sec_3$formatPNG';
   static const hoodiesSec4 = '${basePath}hoodies_sec_4$formatPNG';
+    // BottomNavigationBar
+  static const homeBottomNavigation =
+      '${basePath}home_bottom_navigation$formatPNG';
+  static const notificationBottomNavigation =
+      '${basePath}notification_bing_bottom_navigation$formatPNG';
+  static const receiptBottomNavigation =
+      '${basePath}receipt_bottom_navigation$formatPNG';
+  static const profileBottomNavigation =
+      '${basePath}profile_bottom_navigation$formatPNG';
 }

@@ -1,11 +1,13 @@
 // import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
+import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
 import 'package:ecommerce/core/configs/assets/app_vectors.dart';
+import 'package:ecommerce/presentaion/search/pages/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SearchField extends StatelessWidget {
-  SearchField({
+class SearchFieldHome extends StatelessWidget {
+  SearchFieldHome({
     super.key,
   });
   final InputBorder? border = OutlineInputBorder(
@@ -21,7 +23,7 @@ class SearchField extends StatelessWidget {
         // When this is set to true, the text cannot be modified by any shortcut or keyboard operation.
         readOnly: true,
         onTap: () {
-          // AppNavigator.push(context, const Search());
+          AppNavigator.push(context, const Search());
         },
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(12.dg),

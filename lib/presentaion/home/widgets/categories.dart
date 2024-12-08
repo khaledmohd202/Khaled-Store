@@ -1,4 +1,6 @@
 import 'package:ecommerce/common/dummy_data/home_page.dart';
+import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
+import 'package:ecommerce/presentaion/all_categories/pages/all_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,7 +12,7 @@ class Categories extends StatelessWidget {
     return Column(
       children: [
         _seeAll(context),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.01),
         _categories(context),
       ],
     );
@@ -31,7 +33,7 @@ class Categories extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              // AppNavigator.push(context, const AllCategoriesPage());
+              AppNavigator.push(context, const AllCategories());
             },
             child: Text(
               'See All',
@@ -85,6 +87,7 @@ class Categories extends StatelessWidget {
     );
   }
 }
+
 /*
 // class Categories extends StatelessWidget {
 //   const Categories({super.key});

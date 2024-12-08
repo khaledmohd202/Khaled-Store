@@ -1,33 +1,34 @@
-// import 'package:ecommerce/common/helper/navigator/app_navigator.dart';
-import 'package:ecommerce/domain/product/entities/product.dart';
-// import 'package:ecommerce/presentation/product_detail/pages/product_detail.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/configs/theme/app_colors.dart';
-import '../../helper/images/image_display.dart';
 
 class ProductCard extends StatelessWidget {
-  final ProductEntity productEntity;
   const ProductCard({
-    required this.productEntity,
-    super.key
+    required this.title,
+    super.key,
+    required this.price,
+    required this.discountedPrice,
+    required this.image,
   });
+  final String title;
+  final String price;
+  final String discountedPrice;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         // AppNavigator.push(context, ProductDetailPage(productEntity: productEntity,));
       },
       child: Container(
-        width: 180,
+        width: MediaQuery.of(context).size.width * 0.4,
         decoration: BoxDecoration(
           color: AppColors.secondBackground,
-          borderRadius: BorderRadius.circular(8)
+          borderRadius: BorderRadius.circular(10.r),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
               flex: 4,
@@ -36,59 +37,50 @@ class ProductCard extends StatelessWidget {
                   color: Colors.white,
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: NetworkImage(
-                      ImageDisplayHelper.generateProductImageURL(
-                        productEntity.images[0]
-                      )
-                    )
+                    image: AssetImage(image),
                   ),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8),
-                    topRight: Radius.circular(8)
-                  )
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8.r),
+                    topRight: Radius.circular(8.r),
+                  ),
                 ),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            Padding(
+              padding: EdgeInsets.all(8.dg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 12.sp,
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  Row(
                     children: [
                       Text(
-                        productEntity.title,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          overflow: TextOverflow.ellipsis,
-                          fontWeight: FontWeight.w300
+                        discountedPrice.isEmpty ? price : price,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            productEntity.discountedPrice == 0 ? "${productEntity.price}\$" :
-                            "${productEntity.discountedPrice}\$",
-                            style: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          const SizedBox(width: 10, ),
-                            Text(
-                              productEntity.discountedPrice == 0 ? '' :
-                              "${productEntity.price}\$",
-                              style: const TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w300,
-                                decoration: TextDecoration.lineThrough
-                              ),
-                            ),
-                        ],
-                      )
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.01),
+                      Text(
+                        discountedPrice.isEmpty ? '' : discountedPrice,
+                        style: TextStyle(
+                          fontSize: 12.sp,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w300,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
                     ],
                   ),
+                ],
               ),
             ),
           ],

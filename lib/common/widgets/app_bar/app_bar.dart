@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final Widget? title;
   final Widget? action;
   final Color? backgroundColor;
   final bool hideBack;
   final double? height;
   const BasicAppBar(
-      {required this.title,
+      {this.title,
       this.hideBack = false,
       this.action,
       this.backgroundColor,
@@ -23,13 +23,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       automaticallyImplyLeading: false,
       toolbarHeight: height ?? 60.h,
-      title: Text(
-        title,
-        style: TextStyle(
-          fontSize: 20.sp,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      title: title,
       //  ?? const Text(''),
       titleSpacing: 0,
       actions: [

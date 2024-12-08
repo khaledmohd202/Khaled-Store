@@ -29,10 +29,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppBar(
-        title: '',
-        height: 30.h,
-      ),
+      appBar: BasicAppBar(height: 30.h),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(

@@ -26,7 +26,7 @@ class GenderAndAgeSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppBar(title: '', height: 60.h),
+      appBar: BasicAppBar(height: 60.h),
       body: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => GenderSelectionCubit()),
@@ -187,7 +187,7 @@ class GenderAndAgeSelection extends StatelessWidget {
                       params: userCreationReq,
                     );
                 // if (ButtonStateCubit is ButtonSuccessState) {
-                //   AppNavigator.pushReplacement(context, const Home());
+                //   AppNavigator.pushReplacement(context, SignIn());
                 // }
               },
               title: 'Finish',

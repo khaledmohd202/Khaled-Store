@@ -17,7 +17,6 @@ class SignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppBar(
-        title: '',
         hideBack: true,
         height: 30.h,
       ),

@@ -9,5 +9,6 @@
         "successfull",
         "Windrunner"
     ],
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "cmake.ignoreCMakeListsMissing": true
 }
