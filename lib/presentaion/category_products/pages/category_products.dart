@@ -20,6 +20,7 @@ class CategoryProducts extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
+            // padding: EdgeInsets.only(left: 15.w, right: 15.w, bottom: 50.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -49,9 +50,9 @@ class CategoryProducts extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 15.dg,
-          mainAxisSpacing: 20.dg,
+          mainAxisSpacing: 10.dg,
           childAspectRatio: 0.6.sign,
-          mainAxisExtent: 260,
+          mainAxisExtent: 250,
         ),
         itemBuilder: (context, index) {
           return ProductCard(

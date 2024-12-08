@@ -1,22 +1,62 @@
-import 'package:ecommerce/common/widgets/app_bar/app_bar.dart';
-import 'package:ecommerce/core/configs/assets/app_vectors.dart';
+import 'package:ecommerce/common/dummy_data/home_page.dart';
+import 'package:ecommerce/common/widgets/product/product_card.dart';
 import 'package:ecommerce/presentaion/search/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Search extends StatelessWidget {
+import 'package:ecommerce/common/widgets/app_bar/app_bar.dart';
+
+import '../../../core/configs/assets/app_vectors.dart';
+
+class Search extends StatefulWidget {
   const Search({super.key});
+
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  final TextEditingController _searchController = TextEditingController();
+  late List<Map<String, String>> filteredProducts;
+  var dummyProducts = getDummyProducts();
+
+  @override
+  void initState() {
+    super.initState();
+    filteredProducts = dummyProducts;
+  }
+
+  void _filterProducts(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredProducts = dummyProducts;
+      } else {
+        filteredProducts = dummyProducts.where((product) {
+          final title = product['title']!.toLowerCase();
+          return title.contains(query.toLowerCase());
+        }).toList();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BasicAppBar(
-        height: 70.h,
-        title: SearchField(),
-        // backgroundColor: Colors.white,
+      appBar: BasicAppBar(height: 50.h),
+      body: Column(
+        children: [
+          SearchField(
+            textEditingController: _searchController,
+            onChanged: _filterProducts,
+          ),
+          Expanded(
+            child: filteredProducts.isEmpty
+                ? _notFound()
+                : _products(filteredProducts),
+          ),
+        ],
       ),
-      // body: _notFound(),
     );
   }
 
@@ -37,14 +77,26 @@ class Search extends StatelessWidget {
     );
   }
 
-  // Widget _products() {
-  //   return GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-  //     crossAxisCount: 2,
-  //     crossAxisSpacing: 10.dg,
-  //     mainAxisExtent: 10.dg,
-  //     childAspectRatio: 0.6.sign,
-  //   ), itemBuilder: (context, index) {
-  //     return ProductCard(title: title, price: price, discountedPrice: discountedPrice, image: image);
-  //   },)
-  // }
+  Widget _products(List<Map<String, String>> products) {
+    return GridView.builder(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10.dg,
+        mainAxisSpacing: 10.dg,
+        childAspectRatio: 0.6.sign,
+        mainAxisExtent: 220.dg,
+      ),
+      itemCount: products.length,
+      itemBuilder: (context, index) {
+        final product = products[index];
+        return ProductCard(
+          title: product['title']!,
+          price: product['price']!,
+          discountedPrice: product['discountedPrice']!,
+          image: product['image']!,
+        );
+      },
+    );
+  }
 }

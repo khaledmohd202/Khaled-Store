@@ -119,3 +119,29 @@ List<String> hoodiesDiscountedPrices = [
   '',
   '',
 ];
+
+
+// Combine Hoodies and New In Sections into a Single Dummy Products List
+List<Map<String, String>> getDummyProducts() {
+  final List<Map<String, String>> products = [];
+
+  for (int i = 0; i < hoodiesImages.length; i++) {
+    products.add({
+      'image': hoodiesImages[i],
+      'title': hoodiesTitles[i],
+      'price': hoodiesPrices[i],
+      'discountedPrice': hoodiesDiscountedPrices[i],
+    });
+  }
+
+  for (int i = 0; i < newInImages.length; i++) {
+    products.add({
+      'image': newInImages[i],
+      'title': newInTitles[i],
+      'price': newInPrices[i],
+      'discountedPrice': newInDiscountedPrices[i],
+    });
+  }
+
+  return products;
+}
