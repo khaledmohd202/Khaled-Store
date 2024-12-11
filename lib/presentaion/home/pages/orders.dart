@@ -8,14 +8,14 @@ import 'package:ecommerce/presentaion/all_categories/pages/all_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class NotificationPage extends StatelessWidget {
-  const NotificationPage({super.key});
+class Orders extends StatelessWidget {
+  const Orders({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppBar(
-        title: const Text('Notifications'),
+        title: const Text('Orders'),
         hideBack: true,
         height: 45.h,
       ),
@@ -23,11 +23,10 @@ class NotificationPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Transform.scale(
-                scale: 1.3, child: Image.asset(AppImages.noNotificationYet)),
+            Transform.scale(scale: 1.3, child: Image.asset(AppImages.noOrders)),
             SizedBox(height: Const.mediaQueryHeight(context) * 0.08),
             Text(
-              'No Notification Yet',
+              'No Orders Yet',
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: Const.mediaQueryHeight(context) * 0.01),

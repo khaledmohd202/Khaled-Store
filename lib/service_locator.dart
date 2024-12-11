@@ -4,7 +4,7 @@ import 'package:ecommerce/data/category/repository/category.dart';
 import 'package:ecommerce/data/category/source/category_firebase_service.dart';
 import 'package:ecommerce/data/order/repository/order.dart';
 import 'package:ecommerce/data/order/source/order_firebase_service.dart';
-import 'package:ecommerce/data/product/repository/product.dart';
+// import 'package:ecommerce/data/product/repository/product.dart';
 import 'package:ecommerce/domain/auth/repository/auth.dart';
 import 'package:ecommerce/domain/auth/use_cases/get_ages.dart';
 import 'package:ecommerce/domain/auth/use_cases/get_user.dart';
@@ -14,12 +14,12 @@ import 'package:ecommerce/domain/auth/use_cases/sign_in.dart';
 import 'package:ecommerce/domain/auth/use_cases/sign_up.dart';
 import 'package:ecommerce/domain/category/use_cases/get_categories.dart';
 import 'package:ecommerce/domain/order/repository/order.dart';
-import 'package:ecommerce/domain/order/usecases/add_to_cart.dart';
-import 'package:ecommerce/domain/order/usecases/get_cart_products.dart';
-import 'package:ecommerce/domain/order/usecases/get_orders.dart';
-import 'package:ecommerce/domain/order/usecases/order_registration.dart';
-import 'package:ecommerce/domain/order/usecases/remove_cart_product.dart';
-import 'package:ecommerce/domain/product/repository/product.dart';
+import 'package:ecommerce/domain/order/use_cases/add_to_cart.dart';
+import 'package:ecommerce/domain/order/use_cases/get_cart_products.dart';
+import 'package:ecommerce/domain/order/use_cases/get_orders.dart';
+import 'package:ecommerce/domain/order/use_cases/order_registration.dart';
+import 'package:ecommerce/domain/order/use_cases/remove_cart_product.dart';
+// import 'package:ecommerce/domain/product/repository/product.dart';
 import 'package:ecommerce/domain/product/use_cases/add_or_remove_favorite_product.dart';
 import 'package:ecommerce/domain/product/use_cases/get_favorties_products.dart';
 import 'package:ecommerce/domain/product/use_cases/get_new_in.dart';
@@ -29,7 +29,7 @@ import 'package:ecommerce/domain/product/use_cases/get_top_selling.dart';
 import 'package:ecommerce/domain/product/use_cases/is_favorite.dart';
 import 'package:get_it/get_it.dart';
 
-import 'data/product/source/product_firebase_service.dart';
+// import 'data/product/source/product_firebase_service.dart';
 import 'domain/category/repository/category.dart';
 
 final sl = GetIt.instance; //sl => SingleTon
@@ -41,7 +41,7 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<CategoryFirebaseService>(CategoryFirebaseServiceImpl());
 
-  sl.registerSingleton<ProductFirebaseService>(ProductFirebaseServiceImpl());
+  // sl.registerSingleton<ProductFirebaseService>(ProductFirebaseServiceImpl());
 
   sl.registerSingleton<OrderFirebaseService>(OrderFirebaseServiceImpl());
 
@@ -51,7 +51,7 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<CategoryRepository>(CategoryRepositoryImpl());
 
-  sl.registerSingleton<ProductRepository>(ProductRepositoryImpl());
+  // sl.registerSingleton<ProductRepository>(ProductRepositoryImpl());
 
   sl.registerSingleton<OrderRepository>(OrderRepositoryImpl());
 

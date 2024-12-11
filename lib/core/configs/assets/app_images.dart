@@ -23,7 +23,7 @@ class AppImages {
   static const hoodiesSec2 = '${basePath}hoodies_sec_2$formatPNG';
   static const hoodiesSec3 = '${basePath}hoodies_sec_3$formatPNG';
   static const hoodiesSec4 = '${basePath}hoodies_sec_4$formatPNG';
-    // BottomNavigationBar
+  // BottomNavigationBar
   static const homeBottomNavigation =
       '${basePath}home_bottom_navigation$formatPNG';
   static const notificationBottomNavigation =
@@ -32,4 +32,12 @@ class AppImages {
       '${basePath}receipt_bottom_navigation$formatPNG';
   static const profileBottomNavigation =
       '${basePath}profile_bottom_navigation$formatPNG';
+  // ProductDetail
+  static const productDetail1 = '${basePath}product_detail_1$formatPNG';
+  static const productDetail2 = '${basePath}product_detail_2$formatPNG';
+  // Notification
+  static const noNotificationYet =
+      '${basePath}not_found_notification$formatPNG';
+  // Orders
+  static const noOrders = '${basePath}no_orders$formatPNG';
 }

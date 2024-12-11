@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce/core/configs/assets/app_images.dart';
+import 'package:ecommerce/domain/product/entities/color.dart';
+import 'package:ecommerce/domain/product/entities/product.dart';
 import 'package:ecommerce/presentaion/home/pages/home.dart';
 import 'package:ecommerce/presentaion/home/pages/notification.dart';
 import 'package:ecommerce/presentaion/home/pages/profile.dart';
-import 'package:ecommerce/presentaion/home/pages/receipt.dart';
+import 'package:ecommerce/presentaion/home/pages/orders.dart';
+import 'package:flutter/material.dart';
 
 //=========> Categories List View "images & Titles"
 List<String> categoriesImage = [
@@ -67,8 +71,8 @@ List<String> newInDiscountedPrices = [
 //=========> BottomNavigationBar
 List pagesBottomNavigation = [
   const Home(),
-  const Notification(),
-  const Receipt(),
+  const NotificationPage(),
+  const Orders(),
   const Profile(),
 ];
 List<String> iconsBottomNavigation = [
@@ -120,7 +124,6 @@ List<String> hoodiesDiscountedPrices = [
   '',
 ];
 
-
 // Combine Hoodies and New In Sections into a Single Dummy Products List
 List<Map<String, String>> getDummyProducts() {
   final List<Map<String, String>> products = [];
@@ -145,3 +148,55 @@ List<Map<String, String>> getDummyProducts() {
 
   return products;
 }
+
+//=========> Product Detail
+List<ProductEntity> dummyProducts = [
+  ProductEntity(
+    categoryId: 'cat1',
+    colors: [
+      ProductColorEntity(title: 'Red', color: Colors.red),
+      ProductColorEntity(title: 'Green', color: Colors.green),
+      ProductColorEntity(title: 'Blue', color: Colors.blue),
+    ],
+    createdDate: Timestamp.now(),
+    discountedPrice: 148.00,
+    gender: 0,
+    images: [
+      AppImages.topSelling1,
+      AppImages.productDetail1,
+      AppImages.productDetail2
+    ],
+    price: 150.00,
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
+    productId: 'prod1',
+    salesNumber: 50,
+    title: 'Men\'s Harrington Jacket',
+  ),
+  ProductEntity(
+    categoryId: 'cat2',
+    colors: [
+      ProductColorEntity(title: 'Green', color: Colors.green),
+    ],
+    createdDate: Timestamp.now(),
+    discountedPrice: 200.00,
+    gender: 1,
+    images: [AppImages.topSelling2],
+    price: 250.00,
+    sizes: ['M', 'L', 'XL'],
+    productId: 'prod2',
+    salesNumber: 30,
+    title: 'Green Dress',
+  ),
+];
+List<Color> colorsDummy = [
+  Colors.red,
+  Colors.green,
+  Colors.blue,
+  Colors.black,
+];
+List<String> titlesDummy = [
+  'Red',
+  'Green',
+  'Blue',
+  'Black',
+];
