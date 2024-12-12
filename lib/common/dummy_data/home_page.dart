@@ -4,8 +4,8 @@ import 'package:ecommerce/domain/product/entities/color.dart';
 import 'package:ecommerce/domain/product/entities/product.dart';
 import 'package:ecommerce/presentaion/home/pages/home.dart';
 import 'package:ecommerce/presentaion/home/pages/notification.dart';
-import 'package:ecommerce/presentaion/home/pages/profile.dart';
 import 'package:ecommerce/presentaion/home/pages/orders.dart';
+import 'package:ecommerce/presentaion/settings/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
 //=========> Categories List View "images & Titles"
@@ -73,12 +73,12 @@ List pagesBottomNavigation = [
   const Home(),
   const NotificationPage(),
   const Orders(),
-  const Profile(),
+  const SettingsPage(),
 ];
 List<String> iconsBottomNavigation = [
   AppImages.homeBottomNavigation,
   AppImages.notificationBottomNavigation,
-  AppImages.receiptBottomNavigation,
+  AppImages.orderBottomNavigation,
   AppImages.profileBottomNavigation,
 ];
 

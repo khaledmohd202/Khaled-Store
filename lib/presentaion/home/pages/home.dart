@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:ecommerce/common/dummy_data/home_page.dart';
 import 'package:ecommerce/common/widgets/product/product_card.dart';
 import 'package:ecommerce/core/configs/theme/app_colors.dart';
@@ -43,6 +42,7 @@ class Home extends StatelessWidget {
     );
   }
 
+  // ignore: unused_element
   Widget _allProducts() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -57,6 +57,7 @@ class Home extends StatelessWidget {
     );
   }
 
+  // ignore: unused_element
   Widget _products(context) {
     return SizedBox(
       height: Const.mediaQueryHeight(context) / 1.5,

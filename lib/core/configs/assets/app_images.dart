@@ -28,7 +28,7 @@ class AppImages {
       '${basePath}home_bottom_navigation$formatPNG';
   static const notificationBottomNavigation =
       '${basePath}notification_bing_bottom_navigation$formatPNG';
-  static const receiptBottomNavigation =
+  static const orderBottomNavigation =
       '${basePath}receipt_bottom_navigation$formatPNG';
   static const profileBottomNavigation =
       '${basePath}profile_bottom_navigation$formatPNG';
